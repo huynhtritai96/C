@@ -81,6 +81,14 @@ void printList(struct Node* head) {
     printf("NULL\n");
 }
 
+void printReversedList(struct Node* head) {
+    struct Node* curr = head;
+    if(curr == NULL) return;
+    printReversedList(curr->next);
+    printf("%d -> ", curr->value);
+}
+
+
 
 int main()
 {
@@ -93,6 +101,9 @@ int main()
     insertEnd(&head, 7);
     
     printList(head);
+    printf("\n");
+    printReversedList(head);
+    printf("\n");
     
     removeNode(&head, 5);
     removeNode(&head, 15);
